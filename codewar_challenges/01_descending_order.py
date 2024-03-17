@@ -13,3 +13,13 @@ descending_order(num)
 # even better solution
 def descending_order(num):
     return int("".join(sorted([num for num in str(num)], reverse=True)))
+
+# ___________________________________________________
+# or this
+def Descending_Order(num):
+    s = str(num)
+    s = list(s)
+    s = sorted(s)
+    s = reversed(s)
+    s = ''.join(s)
+    return int(s)
