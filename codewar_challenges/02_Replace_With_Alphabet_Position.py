@@ -1,12 +1,36 @@
-# str = "The sunset sets at twelve o' clock."
-# print(list(str))
+# my solution
+def alphabet_position(text):
+    alph_str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    alph_list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    text_list = list(text.upper())  # ['T', 'H', 'E', ' ', 'S', 'U', 'N', 'S', 'E', 'T', ' ', 'S', 'E', 'T', 'S', ' ', 'A', 'T', ' ', 'T', 'W', 'E', 'L', 'V', 'E', ' ', 'O', "'", ' ', 'C', 'L', 'O', 'C', 'K', '.']
+    
+    output_num = []
+    
+    for l in text_list:
+        if l in alph_list:
+            x = alph_str.find(l) + 1
+            output_num.append(str(x))
+    final = ' '
+#   return print(f"'{str(final.join(output_num))}'")
+    return final.join(output_num)
+
+
+# 先列出字母列表 O
+# 玄找是否在字母列表裡面
+# 是，尋找該自在字母列表的順位
+# 否，pass
 
 
 
-# def alphabet_position(text):
-# #     text = "The sunset sets at twelve o' clock."
-#     print(list(text))
 
+
+
+
+
+
+
+
+#  _________________________________________
 text =  "The sunset sets at twelve o' clock."
 # alphabet_position(text)
 
@@ -28,14 +52,11 @@ print(bbb)
 # aaa = list(text).upper()
 # print(aaa)
 
-# -_____________________________
+#  _________________________________________
 def alphabet_position(text):
     alph_str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     alph_list = ['A',' B', ' C', ' D', ' E', ' F', ' G', ' H', ' I', ' J', ' K', ' L', ' M', ' N', ' O', ' P', ' Q', ' R', ' S', ' T', ' U', ' V', ' W', ' X', ' Y', ' Z']
     text = text.upper()
-    
-#     x = text.find("N")
-#     print(x)
 
     for n in list(text):
         print(n)
@@ -44,23 +65,17 @@ def alphabet_position(text):
             print(x)
         
 
-# 先列出字母列表 O
-# 玄找是否在字母列表裡面
-# 是，尋找該自在字母列表的順位
-# 否，pass
-            
-
 #  _________________________________________
-def alphabet_position(text):
-    alph_str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    alph_list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    text = text.upper()   # THE SUNSET SETS AT TWELVE O' CLOCK.
-    text_list = list(text)  # ['T', 'H', 'E', ' ', 'S', 'U', 'N', 'S', 'E', 'T', ' ', 'S', 'E', 'T', 'S', ' ', 'A', 'T', ' ', 'T', 'W', 'E', 'L', 'V', 'E', ' ', 'O', "'", ' ', 'C', 'L', 'O', 'C', 'K', '.']
-    output_num = []
+# def alphabet_position(text):
+#     alph_str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+#     alph_list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+#     text = text.upper()   # THE SUNSET SETS AT TWELVE O' CLOCK.
+#     text_list = list(text)  # ['T', 'H', 'E', ' ', 'S', 'U', 'N', 'S', 'E', 'T', ' ', 'S', 'E', 'T', 'S', ' ', 'A', 'T', ' ', 'T', 'W', 'E', 'L', 'V', 'E', ' ', 'O', "'", ' ', 'C', 'L', 'O', 'C', 'K', '.']
+#     output_num = []
     
-    for l in text_list:
-        if l in alph_list:
-            x = alph_str.find(l) + 1
-            output_num.append(str(x))
-    final = ' '
-    print(f'"{final.join(output_num)}"')
+#     for l in text_list:
+#         if l in alph_list:
+#             x = alph_str.find(l) + 1
+#             output_num.append(str(x))
+#     final = ' '
+#     print(f'"{final.join(output_num)}"')
