@@ -7,3 +7,4 @@ def solution(text, ending):
     return result
 
 solution(input(),input())
+
