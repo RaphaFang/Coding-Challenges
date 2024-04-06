@@ -1,5 +1,5 @@
-tur = (1,2,3)
-str = "ABCDE"
+tur = (1,2,3,4,5,5)
+str = "AAABCDE"
 list1 = [1, 2, 2, 3, 3, 4, 5, 5]
 
 
@@ -10,14 +10,15 @@ def unique_in_order(sequence):
         try:
             if list(sequence)[n] == list(sequence)[n+1]:
                 pass
+            else:
+                print(list(sequence)[n])
+                newlist.append(list(sequence)[n])
         except IndexError:
             if list(sequence)[n] == list(sequence)[n-1]:
                 pass
             else:
                 newlist.append(list(sequence)[n])
-        else:
-            print(list(sequence)[n])
-            newlist.append(list(sequence)[n])
-    print(newlist)           
-     
-unique_in_order(list1)
+        
+    return newlist
+
+unique_in_order(str)
