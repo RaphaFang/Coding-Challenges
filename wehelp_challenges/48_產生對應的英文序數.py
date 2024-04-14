@@ -1,20 +1,23 @@
 def generateOrdinalNumber(number):
     lis_num = list(str(number))
-
-    # if len(lis_num)<=19:
-    if int(lis_num[-2])==0 or int(lis_num[-2])==1:
+    try:
+        if int(lis_num[-2])==0:
+            if int(lis_num[-1])==1:
+                return( str(number)+"st")
+            if int(lis_num[-1])==2 :
+                return( str(number)+"nd")
+            if int(lis_num[-1])==3:
+                return( str(number)+"rd")
+    except IndexError:
         if int(lis_num[-1])==1:
-            print( str(number)+"st")
+            return( str(number)+"st")
         if int(lis_num[-1])==2 :
-            print( str(number)+"nd")
+            return( str(number)+"nd")
         if int(lis_num[-1])==3:
-            print( str(number)+"rd")
+            return( str(number)+"rd")
     else:
-        print( str(number)+"th")
-    # else:
-        
-    # if int(lis_num[-1])>=4 and int(lis_num[-2])==2:
-    #     print( str(number)+"th")
+        return( str(number)+"th")
+
         
     
 
