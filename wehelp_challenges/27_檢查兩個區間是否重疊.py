@@ -11,6 +11,8 @@
 #             return ToF
 #     return ToF
 
+# 這可以過，但是太花時間了，不夠快
+
 
 def isOverlapping(range1, range2):
     start1, end1 = range1
