@@ -1,15 +1,16 @@
-# def isOverlapping(range1, range2):
+def isOverlapping(range1, range2):
 
-#     # range1 = (n for n in range(range1[0], range1[1]+1))
-#     # range2 = (n for n in range(range2[0], range2[1]+1))
-#     # print(range1)
-#     # print(range2)
-#     ToF = False
-#     for n in (n for n in range(range1[0], range1[1]+1)):
-#         if n in (n for n in range(range2[0], range2[1]+1)):
-#             ToF = True
-#             return ToF
-#     return ToF
+    # range1 = (n for n in range(range1[0], range1[1]+1))
+    # range2 = (n for n in range(range2[0], range2[1]+1))
+    # print(range1)
+    # print(range2)
+
+    ToF = False
+    for n in (n for n in range(range1[0], range1[1]+1)):
+        if n in (n for n in range(range2[0], range2[1]+1)):
+            ToF = True
+            return ToF
+    return ToF
 
 # 這可以過，但是太花時間了，不夠快
 
@@ -20,4 +21,5 @@ def isOverlapping(range1, range2):
     return ( start1 <= end2 and start2 <= end1)
 
 isOverlapping([5, 10], [9, 11])  # True
+
 isOverlapping([5, 8], [9, 11])  # False
