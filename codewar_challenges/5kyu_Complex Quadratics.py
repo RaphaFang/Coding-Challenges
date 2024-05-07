@@ -85,7 +85,7 @@ def complex_quadratics(eq):
             elif token[0] =="(":
                 x_count.append(token[:token.index("x")])
             else:
-                x_count.append(token[1:token.index("x")])
+                x_count.append(token[:token.index("x")])
         else:
             if token[0]=="-" :
                 constant_count.append(token)
@@ -104,15 +104,21 @@ def complex_quadratics(eq):
     # 透過eval()以及replace('j', '1j')，處理I計算問題
     x2_count = [n.replace('j', '1j')if len(n) == 1 else n for n in x2_count]
     x2_count = [n.replace('j', '1j')if len(n) ==2 and n[0]=="-" else n for n in x2_count]
+    x2_count = [n.replace('j', '1j')if '(j'in n  else n for n in x2_count]
+
     a= sum(eval(n) for n in x2_count)
     print(a)
     print("109 line")
 
     x_count = [n.replace('j', '1j')if len(n) == 1 else n for n in x_count]
     x_count = [n.replace('j', '1j')if len(n) ==2 and n[0]=="-" else n for n in x_count]
+    x_count = [n.replace('j', '1j')if '(j'in n  else n for n in x_count]
+
     b= sum(eval(n) for n in x_count)
     constant_count = [n.replace('j', '1j')if len(n) == 1 else n for n in constant_count]
     constant_count = [n.replace('j', '1j')if len(n) ==2 and n[0]=="-" else n for n in constant_count]
+    constant_count = [n.replace('j', '1j')if '(j'in n  else n for n in constant_count]
+
     c= sum(eval(n) for n in constant_count)
 
     print(a,b,c)
@@ -133,7 +139,7 @@ def complex_quadratics(eq):
     # print(first_x)
     seconed_x = f"{seconed_x.real:.15f} {seconed_x.imag:+.15f}j"
     # print(seconed_x)
-    return ([complex(re.sub(r'\s+', '',first_x)),complex(re.sub(r'\s+', '',seconed_x))])
+    print ([complex(re.sub(r'\s+', '',first_x)),complex(re.sub(r'\s+', '',seconed_x))])
     # print(type(first_x))
 
     
@@ -142,7 +148,7 @@ test1 = "x^2+2ix+2=-1"
 test2 = "i+ix=x^2+i-ix+2ix^2"
 test3 = "(-217+24i)x+1475i+1156=(-20+4i)x-x^2-713i"
 test4 = 'x^2+ix-x+(i+1)x^2-3=9x^2'
-complex_quadratics('x^2+ix-x+(i+1)x^2-3=9x^2')
+complex_quadratics('ix^2+ix+i=0')
 
 
 # 理論上，要先讀^2，加上正負
@@ -161,3 +167,6 @@ complex_quadratics('x^2+ix-x+(i+1)x^2-3=9x^2')
 
 # aaa = '10'
 # print(aaa.isnumeric())
+
+# https://www.codewars.com/kata/66291436acf94b67ea835b0f
+# 有時間在處理，嗎的
