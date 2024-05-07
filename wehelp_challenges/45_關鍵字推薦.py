@@ -23,3 +23,6 @@ suggestKeywords(["abc", "xyz", "zzz", "ac", "aa"],"a")
 
 # 我的方式也可以運作，但是要將地3行條件設定成 n.startswith(prompt)
 # 並且透過lambda 設定讀取長度是更好的方式
+
+# list = 'abcd'
+# print(list[0:2])
