@@ -18,3 +18,17 @@ test1 = [2, 4, 0, 100, 4, 11, 2602, 36]
 test2 = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,35,5,5,5,5,5,5,5,5,5,5,7,7,7,7,1000]; # even at the end
 
 find_outlier(test2)
+
+
+
+def find_outlier(int):
+    odds = [x for x in int if x%2!=0]
+    evens= [x for x in int if x%2==0]
+    return odds[0] if len(odds)<len(evens) else evens[0]
+
+
+
+def find_outlier(int):
+    odds = [x for x in int if x%2!=0]
+    evens= [x for x in int if x%2==0]
+    return odds[0] if len(odds)<len(evens) else evens[0]
