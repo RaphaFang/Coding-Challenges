@@ -20,17 +20,6 @@ def next_bigger(n):
     #     for n in perm:
     #         print(n)
 
-
-
-
-
-#     # gib = ''
-#     # for n in listed_n:
-#     #     gib+=str(n)
-#     # print(gib)
-#     # if n == int(gib):
-#     #     print -1
-
 next_bigger(12)
 
 # list = [0,1,2,3,4]
