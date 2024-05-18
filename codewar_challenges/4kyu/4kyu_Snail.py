@@ -11,7 +11,10 @@ def snail(snail_map):
         up_row = snail_map[index][index:n]
         right_row = [n[-1] for n in snail_map[index:-1]]
 
-        down_row = snail_map[len-1-index][index:n]
+        down_row = snail_map[len-1-index][index+1:len-index]
+        left_row = [n[0] for n in snail_map[index:-1]]
+
+        # 左跟又有大問題，要調整
             
 
 
