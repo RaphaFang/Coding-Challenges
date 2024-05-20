@@ -19,22 +19,14 @@ def longest_slide_down(pyramid):
     for index, n in enumerate(pyramid[1:]):
         being_add = n
         add_up = pyramid[index]
-        # for i in n:
+        # print(being_add)
+        # print(add_up)
+        
         for index, k in enumerate(being_add):
-            if add_up[index] > add_up[index+1]:
-                being_add[index] = add_up[index]+being_add[index]
-            else:
-                being_add[index] = add_up[index+1]+being_add[index]
-    return (being_add)
+            being_add[index] += max(add_up[index], add_up[index+1])
+    return (being_add[0])
     # 因為都還在同一個func內，所以都還是local的，不會有local 跨到global
         
-            
-
-        
-        
-
-
-
 test2 = [[3], [7, 4], [2, 4, 6], [8, 5, 9, 3]]
 test1 = [ 
             [75],
