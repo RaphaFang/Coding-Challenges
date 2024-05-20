@@ -21,7 +21,8 @@ def longest_slide_down(pyramid):
         add_up = pyramid[index]
         # print(being_add)
         # print(add_up)
-        
+        # 這步驟的目的是要錯位，透過錯位的資料比較
+
         for index, k in enumerate(being_add):
             being_add[index] += max(add_up[index], add_up[index+1])
     return (being_add[0])
