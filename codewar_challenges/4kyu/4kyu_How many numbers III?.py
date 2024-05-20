@@ -18,27 +18,12 @@ def find_all(sum_dig, digs):
             llist.append(n)
     print(llist)
 
+    #  條件三：由小到大
     final = []
     for n in llist:
         if is_ascending(n):
             final.append(n)
     return([len(final), min(final),max(final)])
-
-
-    # #  條件三：由小到大
-    # for k in llist:
-    #     for j in range(0,len(k) - 1):
-    #         if k[j]> k[j+1]:
-    #             break
-    #         else:
-    #             final.append(int(''.join(k)))
-
-    # print(final)
-    # return([len(final), min(final),max(final)])
-
-
-
-
 
 
 print(find_all(35, 6))
