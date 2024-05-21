@@ -1,24 +1,24 @@
 def find_all(sum_dig, digs):
-    # def generate_numbers_with_sum(sum_dig, digs, current_num="", current_sum=0):
-    #     if len(current_num) == digs:
-    #         if current_sum == sum_dig:
-    #             yield int(current_num)
-    #         return
+    def generate_numbers_with_sum(sum_dig, digs, current_num="", current_sum=0):
+        if len(current_num) == digs:
+            if current_sum == sum_dig:
+                yield int(current_num)
+            return
 
-    #     start_digit = int(current_num[-1]) if current_num else 1
-    #     for digit in range(start_digit, 10):
-    #         if current_sum + digit + (digs - len(current_num) - 1) * 9 < sum_dig:
-    #             continue
-    #         if current_sum + digit + (digs - len(current_num) - 1) * 1 > sum_dig:
-    #             break
-    #         yield from generate_numbers_with_sum(sum_dig, digs, current_num + str(digit), current_sum + digit)
+        start_digit = int(current_num[-1]) if current_num else 1
+        for digit in range(start_digit, 10):
+            if current_sum + digit + (digs - len(current_num) - 1) * 9 < sum_dig:
+                continue
+            if current_sum + digit + (digs - len(current_num) - 1) * 1 > sum_dig:
+                break
+            yield from generate_numbers_with_sum(sum_dig, digs, current_num + str(digit), current_sum + digit)
 
-    # final = list(generate_numbers_with_sum(sum_dig, digs))
+    final = list(generate_numbers_with_sum(sum_dig, digs))
     
-    # if not final:
-    #     return []
+    if not final:
+        return []
 
-    # return [len(final), min(final), max(final)]
+    return [len(final), min(final), max(final)]
 
 
 # —————————————————————————————————————————————————————————————————————————
