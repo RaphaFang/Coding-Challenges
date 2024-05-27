@@ -7,7 +7,7 @@ def min_umbrellas(weather):
     if len(weather) == 1 and weather[0] ==1:
         return 1
     if len(weather) == 1 and weather[0] ==0:
-        return 1
+        return 0
             
     first_half = weather[::2]
     second_half = weather[1::2]
@@ -15,16 +15,30 @@ def min_umbrellas(weather):
     print(weather_list)
 
 
-    # 作法，用list的[1]去比對[0] 
-    num=0
+    num, at_off, at_home = 0, False, False
+
+    # 會出問題，因為第一天的統計機制一直有問題
     for n in range(1, len(weather_list)):
         print(n, weather_list[n])
-        if weather_list[n][0]==1 and weather_list[n-1][1]==0:
-            num +=1
-        # print(n ==(0,1))
-        elif weather_list[n] ==(0,1) and weather_list[n-1]!=(1, 0):
-            num +=1
-    print(num)
+        if weather_list[n-1][1]==0 and weather_list[n][0]==1:
+            if at_home == False:
+                num +=1
+                if weather_list[n][1]==0:
+                    at_off == True
+                if weather_list[n][1]==1:
+                    at_home == True
+            else:
+                at_home = False
+
+        elif weather_list[n-1]!=(1, 0) and weather_list[n] ==(0,1):
+            if at_off == False:
+                num +=1
+                if weather_list[n]==(0,1):
+                    at_home = True
+            else:
+                at_off = False
+
+    print(f"the 43: {num}")
 
     if weather_list[0]!=(0,0):
         num +=1
@@ -32,16 +46,5 @@ def min_umbrellas(weather):
 
 
 
-weather = ["cloudy"]
+weather =["cloudy"]
 print(min_umbrellas(weather))
-
-
-# my_list = [1,2,3,4,5,6,7,8,9]
-# first_half = my_list[::2]
-# second_half = my_list[1::2]
-# paired_list = list(zip(first_half, second_half))
-
-# print(paired_list)
-
-# tt= (0,1,2,3,4)
-# print(tt[1])
