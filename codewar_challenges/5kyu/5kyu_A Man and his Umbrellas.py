@@ -4,52 +4,29 @@ def min_umbrellas(weather):
             weather[index] = 1
         else:
             weather[index] = 0
-    if len(weather) == 1 and weather[0] ==1:
-        return 1
-    if len(weather) == 1 and weather[0] ==0:
-        return 0
-            
-    first_half = weather[::2]
-    second_half = weather[1::2]
-    weather_list = list(zip(first_half, second_half))
-    print(weather_list)
-
-
-    num, at_off, at_home = 0, False, False
-
-    # 會出問題，因為第一天的統計機制一直有問題
-
-
-
-
-    # https://www.codewars.com/kata/58298e19c983caf4ba000c8d/train/python
-    for n in range(1, len(weather_list)):
-        print(n, weather_list[n])
-        if weather_list[n-1][1]==0 and weather_list[n][0]==1:
-            if at_home == False:
-                num +=1
-                if weather_list[n][1]==0:
-                    at_off == True
-                if weather_list[n][1]==1:
-                    at_home == True
+    at_off, at_home = 0, 0
+    if weather[0] == 1:
+        at_off +=1
+    for n in range(1, len(weather)):
+        print(weather[n])
+        if n%2 == 1 and weather[n] ==1:
+            if at_off >=1:
+                at_off-=1
+                at_home+=1
             else:
-                at_home = False
-
-        elif weather_list[n-1]!=(1, 0) and weather_list[n] ==(0,1):
-            if at_off == False:
-                num +=1
-                if weather_list[n]==(0,1):
-                    at_home = True
+                at_home+=1
+        if n%2 == 0 and weather[n] ==1:
+            if at_home >=1:
+                at_home-=1
+                at_off+=1
             else:
-                at_off = False
+                at_off+=1
+    return at_off + at_home
 
-    print(f"the 43: {num}")
-
-    if weather_list[0]!=(0,0):
-        num +=1
-    return num
-
-
-
-weather =["cloudy"]
+weather =["rainy"]
 print(min_umbrellas(weather))
+
+# first_half = weather[::2]
+# second_half = weather[1::2]
+# weather_list = list(zip(first_half, second_half))
+# print(weather_list)
