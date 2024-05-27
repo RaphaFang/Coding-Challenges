@@ -18,6 +18,11 @@ def min_umbrellas(weather):
     num, at_off, at_home = 0, False, False
 
     # 會出問題，因為第一天的統計機制一直有問題
+
+
+
+
+    # https://www.codewars.com/kata/58298e19c983caf4ba000c8d/train/python
     for n in range(1, len(weather_list)):
         print(n, weather_list[n])
         if weather_list[n-1][1]==0 and weather_list[n][0]==1:
