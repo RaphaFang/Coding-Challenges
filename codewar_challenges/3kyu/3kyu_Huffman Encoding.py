@@ -17,8 +17,12 @@ def frequencies(s):
 # def decode(freqs,bits):
 #     return ""
 # aaaabbbccde aaaabcc
+
+
 the_para = frequencies('aaaabbbccde')
+
 the_para.sort(key=lambda x: x[1])
+
 print(the_para)
 
 the_len = len(the_para)
@@ -41,5 +45,12 @@ if the_len > 1:
         else:
             dd_dict[n[0]]=starting
 
-print(dd_dict)
+
+aa = list('aaaabbbccde')
+return_str = ''
+for n in aa:
+    return_str += dd_dict.get(n)
+print(return_str)
+
+# print(dd_dict)
 print('----')
