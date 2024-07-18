@@ -1,44 +1,85 @@
-import random
-import string
-import time
+# # # /v1/rest/datastore/F-D0047-089
+# # from fastapi import APIRouter, Request
+# # from fastapi.responses import JSONResponse
+# # from datetime import datetime, timedelta
+# # import os
+# # import requests
 
-words = set()
-while len(words) < 100000:
-    word = ''.join(random.choices(string.ascii_lowercase, k=10))
-    words.add(word)
-    # words.append(word)
+# # current = datetime.now()
+# # current_day = current.strftime("%Y-%m-%d")
+# # next_day = (current + timedelta(days=1)).strftime("%Y-%m-%d")
 
-# start_time = time.time()
-# list_to_set = set(words)
-# set_time = time.time() - start_time
+# # router = APIRouter()
 
-# search_word = random.choice(sett)
+# # url = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001"
+# # params = {
+# #     "sort": "time",
+# #     "timeFrom": f'{current_day}T00:00:00',
+# #     # "timeTo": f"{next_day}T01:00:00",
+# # }
+# # headers = {"Authorization": os.getenv('CWB_API_KEY')} 
 
-word_list = list(words)
-# print(word_list)
-word_set = set(words)
-# print(word_set)
-word_dict = {w:None for w in words}
-# print(word_dict)
+# # response = requests.get(url, headers=headers, params=params)
+# # if response.status_code == 200:
+# #             data = response.json()['records']['location']
 
-search_word = random.choice(word_list)
+# #             location_info = {}
+# #             for n in range(len(data)):
+# #                 raw = data[n]
+# #                 locationName = raw['locationName']
+# #                 we = raw['weatherElement']
 
-start_time = time.time()
-found_in_list = search_word in word_list
-list_time = time.time() - start_time
+# #                 min = we[2]['time']
+# #                 MinT = [{'start':n['startTime'],'end':n['endTime'],'para':[n['parameter']['parameterName']]} for n in min]
+# #                 max = we[4]['time']
+# #                 MaxT = [{'start':n['startTime'],'end':n['endTime'],'para':[n['parameter']['parameterName']]} for n in max]
+# #                 wx = we[0]['time']
+# #                 briefDescription = [{'start':n['startTime'],'end':n['endTime'],'para':[n['parameter']['parameterValue'],n['parameter']['parameterName']]} for n in wx]
+# #                 Po = we[1]['time']
+# #                 PoP = [{'start':n['startTime'],'end':n['endTime'],'para':[n['parameter']['parameterName']]} for n in Po]
 
-start_time = time.time()
-found_in_set = search_word in word_set
-set_time = time.time() - start_time
+# #                 processed_data = {'MinT':MinT, 'MaxT':MaxT, 'briefDescription':briefDescription, 'PoP':PoP}
+# #                 location_info[locationName] = processed_data
 
-start_time = time.time()
-found_in_dict = search_word in word_dict
-dict_time = time.time() - start_time
+# #             citylist = ['臺北市', '新北市', '基隆市', '桃園市', '新竹縣', '新竹市', '苗栗縣', '臺中市', '南投縣', '彰化縣', '雲林縣', '嘉義縣', '嘉義市', '臺南市', '高雄市', '屏東縣', '宜蘭縣', '花蓮縣', '臺東縣', '澎湖縣', '金門縣', '連江縣']
+# #             processed_location_info = [{n:location_info[n]} for n in citylist]
+        
+# #             print(processed_location_info)
 
-print(f"List type searching spends: {list_time:.10f} sec")
-print(f"Set type searching spends: {set_time:.10f} sec")
-print(f"Dict type searching spends: {dict_time:.10f} sec")
+# # else:
+# #     print(response.content.decode('utf-8'))
+# from datetime import datetime
+# import pytz
+# nowt = datetime.now()
+# now_utc = datetime.now(pytz.utc)
+# # now = now_utc.astimezone(pytz.timezone('Asia/Taipei')).strftime("%Y-%m-%d %H:%M:%S.%f")
 
-# List type searching spends: 0.0026967525 sec
-# Set type searching spends: 0.0000059605 sec
-# Dict type searching spends: 0.0000019073 sec
+# raw_utc = datetime.now(pytz.utc)
+# now = raw_utc.astimezone(pytz.timezone('Asia/Taipei')).replace(tzinfo=None).strftime("%Y-%m-%d")
+
+# print(now)
+# print(type(now))
+
+
+import asyncio
+
+running = True
+
+async def stop_loop():
+    await asyncio.sleep(5)
+    global running
+    running = False
+    print('hehe i am the stopper, at 5 sec')
+
+async def loop(running):
+    while running():
+        await asyncio.sleep(8)
+    print('i stopped, at 8 sec')
+
+async def main():
+    task1 = asyncio.create_task(stop_loop())
+    task2 = asyncio.create_task(loop(lambda:running))
+    await task1
+    await task2
+
+asyncio.run(main())
